@@ -1,0 +1,74 @@
+--- proxy-vole-1.0.1+git20150501~725a8c7f90/pom.xml	2015-05-01 15:33:19.000000000 -0430
++++ proxy-vole-1.0.1+git20150501~725a8c7f90~/pom.xml	2015-06-17 14:39:46.857516717 -0430
+@@ -13,54 +13,40 @@
+   </properties>
+   
+   <build>
++    <directory>target</directory>
++    <finalName>${artifactId}-${version}</finalName>
+     <plugins>
+       <plugin>
+         <groupId>org.apache.maven.plugins</groupId>
+-        <artifactId>maven-javadoc-plugin</artifactId>
+-        <version>2.9.1</version>
+-        <configuration>
+-          <!--stylesheetfile>resources/misc/stylesheet.css</stylesheetfile-->
+-        </configuration>
+-      </plugin>
+-      
+-      <plugin>
+-      <groupId>org.apache.maven.plugins</groupId>
+-        <artifactId>maven-source-plugin</artifactId>
+-        <version>2.2.1</version>
++        <artifactId>maven-compiler-plugin</artifactId>
+         <configuration>
+-          <includes>
+-            <include>**/*.java</include>
+-            <include>dll/**/*</include>
+-          </includes>
++          <source>1.5</source>
++          <target>1.5</target>
+         </configuration>
++        <version>2.5.1</version>
+       </plugin>
+-      
+       <plugin>
+         <groupId>org.apache.maven.plugins</groupId>
+         <artifactId>maven-jar-plugin</artifactId>
+-        <version>2.4</version>
+         <configuration>
+           <archive>
+-            <manifestFile>src/main/resources/META-INF/MANIFEST.MF</manifestFile>
++            <manifest>
++              <classpathPrefix>/usr/share/maven-repo/</classpathPrefix>
++              <classpathLayoutType>repository</classpathLayoutType>
++            </manifest>
+           </archive>
+         </configuration>
+-       </plugin>
+-      
++        <version>2.4</version>
++      </plugin>
+     </plugins>
+   </build>
+   
+   <dependencies>
+-  	<dependency>
+-  		<groupId>org.mozilla</groupId>
+-  		<artifactId>rhino</artifactId>
+-  		<version>1.7R4</version>
+-  		<optional>true</optional>
+-  	</dependency>
+-  	<dependency>
+-  		<groupId>junit</groupId>
+-  		<artifactId>junit</artifactId>
+-  		<version>4.11</version>
+-  	</dependency>
++    <dependency>
++        <groupId>rhino</groupId>
++        <artifactId>js</artifactId>
++        <version>1.7R4</version>
++    </dependency>
+   </dependencies>
+ </project>
+ 

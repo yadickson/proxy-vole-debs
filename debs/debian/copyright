@@ -1,0 +1,16 @@
+Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: proxy-vole
+Source: https://github.com/brsanthu/proxy-vole
+
+Files: *
+Copyright: 2015, 2009, Bernd Rosstauscher
+License: BSD
+
+Files: debian/*
+Copyright: 2015, Yadickson Soto <yadickson@gmail.com>
+License: BSD
+
+License: BSD
+  TODO: include the full text of the license here
+
+
