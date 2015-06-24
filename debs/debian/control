@@ -4,7 +4,7 @@ Priority: optional
 Maintainer: Debian Java Maintainers <pkg-java-maintainers@lists.alioth.debian.org>
 Uploaders: Yadickson Soto <yadickson@gmail.com>
 Build-Depends: debhelper (>= 9), cdbs, default-jdk, maven-debian-helper (>= 1.5)
-Build-Depends-Indep: junit4, librhino-java 
+Build-Depends-Indep: librhino-java 
 Standards-Version: 3.9.6
 Vcs-Git: git://anonscm.debian.org/pkg-java/proxy-vole.git
 Vcs-Browser: https://anonscm.debian.org/cgit/pkg-java/proxy-vole.git
@@ -14,7 +14,7 @@ Package: libproxy-vole-java
 Architecture: all
 Depends: ${misc:Depends}, ${maven:Depends}
 Suggests: ${maven:OptionalDepends}
-Description: proxy-vole
+Description: Proxy Vole
  A Java library to auto detect the platform network proxy settings. The
  library provides some proxy setting search strategies to read the proxy
  settings from the system config (Windows, KDE, Gnome, OSX), browser config

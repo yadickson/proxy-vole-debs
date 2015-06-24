@@ -1,31 +1,18 @@
 # proxy-vole-debs
-Build Debian Package for Proxy Vole (v1.0.1-SNAPSHOT)
+Build Debian Package for Proxy Vole
 
-**Instructions**
+**Build dependencies**
 
-Inside of the debs folder
-
-**Gets orig source code**
-
-```
-debian/rules get-orig-source
-```
-
-**Check dependencies**
-
-```
-dpkg-checkbuilddeps
-```
-
-**Build source package**
-
-```
-debuild -S -nc -uc -us
-```
+- debhelper (>= 9)
+- cdbs
+- default-jdk
+- maven-debian-helper (>= 1.5)
+- librhino-java
 
 **Tested**
 
-```
-Debian jessie
-```
+- Debian wheezy
+- Debian jessie
+
+[Release page](https://github.com/yadickson/proxy-vole-debs/releases)
 
