@@ -1,3 +1,9 @@
+proxy-vole (1.0.3-1) unstable; urgency=medium
+
+  * Upstream version
+
+ -- Yadickson Soto <yadickson@gmail.com>  Thu, 16 Mar 2017 13:47:00 -0300
+
 proxy-vole (1.0.1+git20150501~725a8c7f90-2) unstable; urgency=medium
 
   * Fix lintian warning

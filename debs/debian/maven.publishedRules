@@ -1,2 +1,2 @@
 
-s/de\.rosstauscher\.proxy_vole/com.btr.proxy/ s/proxy_vole/proxy-vole/ jar s/1\..*/1.x/ * *
+com.github.markusbernhardt proxy-vole jar s/.*/debian/ * *

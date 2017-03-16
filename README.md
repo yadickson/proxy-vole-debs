@@ -13,6 +13,8 @@ Build Debian Package for Proxy Vole
 
 - Debian wheezy
 - Debian jessie
+- Debian stretch
 
-[Release page](https://github.com/yadickson/proxy-vole-debs/releases)
+- [Home page from source code](https://github.com/MarkusBernhardt/proxy-vole)
+- [Debian source code release](https://github.com/yadickson/proxy-vole-debs/releases)
 
