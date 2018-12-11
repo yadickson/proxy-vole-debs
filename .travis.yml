@@ -1,0 +1,56 @@
+sudo: required
+language: generic
+branches:
+  only:
+  - wheezy
+  - /^v[0-9].*$/
+services:
+- docker
+env:
+  global:
+  - BINTRAY_REPO_NAME=debian
+  - BINTRAY_USER=yadickson
+  - GITHUB_NAME=yadickson
+  - GITHUB_EMAIL=yadickson@gmail.com
+  - PACKAGE_LICENSE=Apache-2.0
+  - PACKAGE_NAME=$(dpkg-parsechangelog | awk '/^Source:/ { print $2 }')
+  - PACKAGE_VERSION=$(dpkg-parsechangelog | awk '/^Version:/ { print $2 }' | sed 's/-.*//')
+  - PACKAGE_DISTRIBUTION=$(dpkg-parsechangelog | awk '/^Distribution:/ { print $2 }')
+  - PACKAGE_RELEASE=$(date '+%Y-%m-%d')
+  - TRAVIS_DEBIAN_DERIVATIVE=debian
+  - TRAVIS_DEBIAN_DISTRIBUTION=${PACKAGE_DISTRIBUTION}
+  - TRAVIS_DEBIAN_GIT_BUILDPACKAGE_OPTIONS="--git-upstream-tree=${PACKAGE_DISTRIBUTION} --git-debian-branch=${PACKAGE_DISTRIBUTION}"
+script:
+- wget -O- http://travis.debian.net/script.sh | sh -
+before_deploy:
+- sed -e "s/__NAME__/${PACKAGE_NAME}/g" .travis.bintray.json.in > .travis.bintray.json
+- sed -i "s/__REPO_NAME__/${BINTRAY_REPO_NAME}/g" .travis.bintray.json
+- sed -i "s/__SUBJECT__/${BINTRAY_USER}/g" .travis.bintray.json
+- sed -i "s/__LICENSE__/${PACKAGE_LICENSE}/g" .travis.bintray.json
+- sed -i "s/__VERSION__/${PACKAGE_VERSION}/g" .travis.bintray.json
+- sed -i "s/__DISTRIBUTION__/${PACKAGE_DISTRIBUTION}/g" .travis.bintray.json
+- sed -i "s/__RELEASE__/${PACKAGE_RELEASE}/g" .travis.bintray.json
+- git config --local user.name "${GITHUB_NAME}"
+- git config --local user.email "${GITHUB_EMAIL}"
+deploy:
+  - provider: bintray
+    file: ".travis.bintray.json"
+    user: "${BINTRAY_USER}"
+    key:
+      secure: Y8Bs9ueaSlViSet2OttPzk0jVsKPjYqEb+fzKX5jh6pkr/7zGl4LXVOU9HKbIo0R6gD/cOdczSqwTVsowQziraQViPhSE/fEsZLFLUqT3WXKy8SygSl0nUEhd+4BvbEYKkI2fIRvD/766DKqyOlIekX/2WOBnjgYw3XUstAEzGJGicOZ7oBuRv7pFt7SKWK9AcVn1itYLcEJk0NjuqgI9uRRpSpfFJiAPKDXp4QoSD9+uMSNrwmPUkX/k7CKtcceaP52f/dnSHTcXoSWIBk/lYlYdwkVuInC6Yv80XaZWpiWv2k40MQEF9qdtKFHujQP1TVDis/sefdXUSmeroJkZq1ouxsQOGntKhkFCSPp+LURmVjeZnDb0HrW6OIc7eOe8DawbnxThfuVyY1HIBgyycdiuC+rY5o1Zj+Dlptjwni0mqnYeYyK+tQSy2JjA5BCULztFGbLAraz9WDYKQRj8uNFcfxeCjxOHJoiSIjWPsUxoh+lybLpA10vQy/w2h2e5Jehe809sELYVqJkAAITw4rdu6/s/jG/ahE2m4oR7Zne+bOM+jGJVSBqmYO81Q9kLcav7giwUk+azw7Rg+H1HdrgdwXd4M/aJjBB6f2iGw+gedf6qBSa9UqZEr3tqYgfdXi9vwE+TYkV0vWeTaS313YHlKIJ85+B3mQXQCr71vQ=
+    passphrase: Optional
+    skip_cleanup: true
+    on:
+      tags: true
+  - provider: releases
+    api_key:
+      secure: LDPsdyQspq1GAU8PjKLCSha5leAM5d9JzuGksUSdPuVJ5D17rVUOtIZ06JI8oTGj6NW/NfqXd96XZ5+d2mVHtXGAI8Iu/v+SvrH+4xIOMYvOOn6CuLbG2xjHtpW+oQbaFHrqA1VlqsTMgLZNd0QJfS2Vm6VylVnFTb07AL7hL2o+D1oEq4+C/CTiyIcQc+fTWTO5O38JaoXkAG5HIX3eMEWRt8QQL0uuzt8HS5pcTx4r3s0r2bYmBPlK8UIRodYK1puAUBrVu2DEaF78l1LHzNt63kXB97Cnj9tTLUmijLrtm0/DHaaOLToT8TwY/KarGxgEpHSLrSxrtxa44rRXguG17xsJFEKT+ASO+8MG9wDZWPHx9q6CJsVXfTB1Ynu8U59C0UHGIeVQOeMl+wguKcd0hi2sipmQPZxL/13DSMJ8BEUQ+mT5TrhEIvA5I2bW5VZunmxv0SS6x6YaH625d/u3GdWYa3DIS/jykQV4Z/Jl4Yrqpjn71cOIfnRoaL8h851erKj2ShgSeru9829q5H2aOZLkb/EM0bMlJ0sEp6REfOLG6Y/HyqqSUtI4CQrz2XccNl8mb5y7hGR6KWDHxTddI/7sbgdtFeZOCGSSFd/qk0AFbyKBVM7Wb8xCO259WwgI57gfPpnZpOhRyeXJIg4NJOx7iUE0RVLpJD8q08c=
+    file_glob: true
+    file:
+      - ../*.orig.tar.*
+      - ../*.debian.tar.*
+      - ../*.dsc
+    skip_cleanup: true
+    on:
+      tags: true
+
