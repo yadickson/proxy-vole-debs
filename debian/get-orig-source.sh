@@ -20,6 +20,15 @@ rm -f "${ZIPFILE}"
 
 mv "${PKG}"* "${PKG}-${VERSION}"
 
+rm -rf "${PKG}-${VERSION}"/src/main/java/com/github/markusbernhardt/proxy/search/browser/ie
+rm -rf "${PKG}-${VERSION}"/src/main/java/com/github/markusbernhardt/proxy/jna/win
+rm -rf "${PKG}-${VERSION}"/src/main/java/com/github/markusbernhardt/proxy/search/desktop/win
+rm -rf "${PKG}-${VERSION}"/src/main/java/com/github/markusbernhardt/proxy/search/desktop/osx/
+rm -rf "${PKG}-${VERSION}"/src/test/java/com/github/markusbernhardt/proxy/search/osx/
+
+rm -f "${PKG}-${VERSION}"/src/main/java/com/github/markusbernhardt/proxy/search/browser/firefox/WinFirefoxProfileSource.java
+rm -f "${PKG}-${VERSION}"/src/main/java/com/github/markusbernhardt/proxy/search/browser/firefox/OsxFirefoxProfileSource.java
+
 find "${PKG}-${VERSION}" -type f -name '*.png' -exec rm -f '{}' \;
 find "${PKG}-${VERSION}" -type f -name '*.java' -exec iconv -f ISO-8859-1 -t UTF-8 '{}' -o '{}'.iconv \; -exec mv '{}'.iconv '{}' \; -exec dos2unix '{}' \;
 

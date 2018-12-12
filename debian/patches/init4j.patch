@@ -1,0 +1,11 @@
+--- a/pom.xml
++++ b/pom.xml
+@@ -63,6 +63,8 @@
+                 <groupId>org.ini4j</groupId>
+                 <artifactId>ini4j</artifactId>
+                 <version>0.5.4</version>
++                <scope>system</scope>
++                <systemPath>/usr/share/java/ini4j.jar</systemPath>
+             </dependency>
+             <dependency>
+                 <groupId>net.java.dev.jna</groupId>
