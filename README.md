@@ -8,7 +8,8 @@
 - cdbs
 - default-jdk
 - maven-debian-helper (>= 1.5)
-- librhino-java
+- libjna-java
+- libjna-platform-java
 
 **Download source code**
 
