@@ -12,7 +12,7 @@ Homepage: https://github.com/MarkusBernhardt/proxy-vole
 
 Package: libproxy-vole-java
 Architecture: all
-Depends: ${misc:Depends}, ${maven:Depends}
+Depends: ${misc:Depends}, ${maven:Depends}, libini4j-java
 Suggests: ${maven:OptionalDepends}
 Description: Proxy Vole
  Proxy Vole is a Java library to auto detect the platform network proxy
