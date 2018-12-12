@@ -38,6 +38,7 @@ $ fakeroot debian/rules clean binary
 
 - Debian jessie
 - Debian stretch
+- Debian buster
 
 **Repositories**
 
@@ -56,6 +57,6 @@ GPL-3.0 © [Yadickson Soto](https://github.com/yadickson)
 
 Apache-2.0 © [MarkusBernhardt](https://github.com/MarkusBernhardt/proxy-vole)
 
-[travis-image]: https://api.travis-ci.org/yadickson/proxy-vole-debs.svg?branch=stretch
+[travis-image]: https://api.travis-ci.org/yadickson/proxy-vole-debs.svg?branch=buster
 [travis-url]: https://travis-ci.org/yadickson/proxy-vole-debs
 
