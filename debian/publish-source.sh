@@ -16,6 +16,7 @@ rm -f CHANGELOG.md
 rm -f LICENSE.md
 rm -f NOTICE.md
 rm -f README
+rm -f COPYRIGHT.md
 
 tar --strip-components=1 -xzf "${ORIG_TARBALL}" "${PKG}-${VERSION}" || exit 1
 

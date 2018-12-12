@@ -20,9 +20,11 @@ rm -f "${ZIPFILE}"
 
 mv "${PKG}"* "${PKG}-${VERSION}"
 
+find "${PKG}-${VERSION}" -type f -name '*.png' -exec rm -f '{}' \;
 find "${PKG}-${VERSION}" -type f -name '*.java' -exec iconv -f ISO-8859-1 -t UTF-8 '{}' -o '{}'.iconv \; -exec mv '{}'.iconv '{}' \; -exec dos2unix '{}' \;
 
 mv "${PKG}-${VERSION}/README.md" "${PKG}-${VERSION}/README"
+cp debian/libproxy-vole-java.pom.xml "${PKG}-${VERSION}/pom.xml"
 
 if [ "${ADD_PATCH}" != "false" ]
 then
