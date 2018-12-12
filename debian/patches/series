@@ -1,2 +1,3 @@
 init4j.patch
 jna-platform.patch
+only_linux_support.patch
