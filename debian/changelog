@@ -1,0 +1,12 @@
+proxy-vole (1.0.1-2) wheezy; urgency=medium
+
+  * New release.
+
+ -- Yadickson Soto <yadickson@gmail.com>  Tue, 11 Dec 2018 17:44:35 -0300
+
+proxy-vole (1.0.1-1) unstable; urgency=low
+
+  * Initial commit
+
+ -- Yadickson Soto <yadickson@gmail.com>  Thu, 05 Jan 2012 18:25:14 -0430
+
