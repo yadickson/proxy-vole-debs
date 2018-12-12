@@ -1,0 +1,11 @@
+--- a/pom.xml
++++ b/pom.xml
+@@ -75,6 +75,8 @@
+                 <groupId>net.java.dev.jna</groupId>
+                 <artifactId>jna-platform</artifactId>
+                 <version>4.2.2</version>
++                <scope>system</scope>
++                <systemPath>/usr/share/java/jna-platform.jar</systemPath>
+             </dependency>
+             <dependency>
+                 <groupId>junit</groupId>
