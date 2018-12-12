@@ -1,3 +1,9 @@
+proxy-vole (1.0.1-5) buster; urgency=medium
+
+  * New release.
+
+ -- Yadickson Soto <yadickson@gmail.com>  Wed, 12 Dec 2018 00:05:08 -0300
+
 proxy-vole (1.0.1-4) stretch; urgency=medium
 
   * New release.
