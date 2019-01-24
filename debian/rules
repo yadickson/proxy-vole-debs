@@ -4,6 +4,7 @@ include /usr/share/cdbs/1/rules/debhelper.mk
 include /usr/share/cdbs/1/class/maven.mk
 
 JAVA_HOME := /usr/lib/jvm/default-java
+DEB_DH_BUILDDEB_ARGS_DEFAULT := -- -Z gzip
 
 PKG  = $(word 2,$(shell dpkg-parsechangelog -ldebian/changelog | grep ^Source))
 VER ?= $(shell dpkg-parsechangelog -ldebian/changelog | perl -ne 'print $$1 if m{^Version:\s+(?:\d+:)?(\d.*)(?:\-\d+.*)};')
